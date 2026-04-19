@@ -93,7 +93,9 @@ export default function DashboardPage() {
 
   // ── Socket.IO for real-time events ────────────────────────────────────────
   useEffect(() => {
-    const socket: Socket = io('http://localhost:3001', { transports: ['websocket', 'polling'] });
+    const socket: Socket = io(import.meta.env.VITE_API_URL || 'http://localhost:3001', { 
+      transports: ['websocket', 'polling'] 
+    });
 
     socket.on('connect', () => setConnected(true));
     socket.on('disconnect', () => setConnected(false));
