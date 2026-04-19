@@ -1,0 +1,6 @@
+id,type,title,latitude,longitude,time,description,threat
+H-TEST-001,HUMINT,Suspicious Meeting at Market,28.6428,77.2195,2026-04-19 13:00:00,Source DELTA-4 reports two known suspects met at Sarojini Nagar market and exchanged a package,High
+H-TEST-002,HUMINT,Recruitment Drive at University,28.5450,77.1920,2026-04-19 11:30:00,Multiple students report aggressive recruitment near DU South Campus with financial incentives offered,Medium
+H-TEST-003,HUMINT,Safe House Identified,28.6830,77.3150,2026-04-19 09:00:00,Informant confirms location used as safe house by persons of interest in Rohini sector,Critical
+H-TEST-004,HUMINT,Weapon Smuggling Route,28.5100,77.4000,2026-04-18 23:00:00,Truck route suspected of transporting contraband between Noida and Faridabad weekly,High
+H-TEST-005,HUMINT,Foreign Contact Observed,28.5520,77.2680,2026-04-18 19:30:00,Asset spotted handler from foreign intelligence at Hauz Khas Village restaurant,High

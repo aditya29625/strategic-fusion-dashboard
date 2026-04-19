@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Environment variables (NEVER commit these)
+.env
+server/.env
+*.env.local
+
+# Build output
+dist/
+build/
+client/dist/
+server/dist/
+
+# Uploads (user-generated content)
+server/uploads/*
+!server/uploads/.gitkeep
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+
+# Vite cache
+client/.vite/
+client/node_modules/.vite/

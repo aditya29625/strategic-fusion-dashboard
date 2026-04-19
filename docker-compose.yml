@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  # MongoDB (local fallback — remove if using Atlas)
+  mongo:
+    image: mongo:7
+    container_name: fusion-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: strategic-fusion
+    networks:
+      - fusion-net
+
+  # Backend server
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: fusion-server
+    ports:
+      - "3001:3001"
+    environment:
+      PORT: 3001
+      NODE_ENV: production
+      MONGODB_URI: mongodb://mongo:27017/strategic-fusion
+      CORS_ORIGIN: http://localhost:5173
+    depends_on:
+      - mongo
+    volumes:
+      - ./server/uploads:/app/uploads
+    networks:
+      - fusion-net
+
+  # Frontend client
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: fusion-client
+    ports:
+      - "5173:80"
+    depends_on:
+      - server
+    networks:
+      - fusion-net
+
+volumes:
+  mongo-data:
+
+networks:
+  fusion-net:
+    driver: bridge
